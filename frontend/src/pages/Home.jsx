@@ -1,8 +1,8 @@
 import React from "react";
-import heroImg01 from "../assets/images/hero-img01.png";
-import heroImg02 from "../assets/images/hero-img02.png";
-import heroImg03 from "../assets/images/hero-img03.png";
-import featureImg from "../assets/images/feature-img.png";
+import connect1 from "../assets/images/connect1.jpg";
+import connect2 from "../assets/images/connect2.jpg";
+import connect3 from "../assets/images/connect3.jpg";
+import featureImg from "../assets/images/feature.jpg";
 import avatarImg from "../assets/images/avatar-icon.png";
 import icon01 from "../assets/images/icon01.png";
 import icon02 from "../assets/images/icon02.png";
@@ -12,6 +12,10 @@ import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import About from "../component/About/About";
 import ServiceList from "../component/Services/ServiceList";
+import DoctorList from "../component/Doctors/DoctorList";
+import faqImg from "../assets/images/faq-img.jpg";
+import FaqList from "../component/Faq/FaqList";
+import Testimonial from "../component/Tetimonials/Testimonial";
 
 const Home = () => {
   return (
@@ -63,11 +67,26 @@ const Home = () => {
             {/* ========= hero content+++++++++ */}
             <div className="flex gap-[30px] justify-end">
               <div>
-                <img className="w-full" src={heroImg01} alt="" />
+                <img
+                  style={{ borderRadius: "20px" }}
+                  className="w-full"
+                  src={connect1}
+                  alt=""
+                />
               </div>
               <div className="mt-[30px]">
-                <img className="w-full mb-[30px]" src={heroImg02} alt="" />
-                <img className="w-full" src={heroImg03} alt="" />
+                <img
+                  style={{ borderRadius: "20px" }}
+                  className="w-1/2 mb-[30px]"
+                  src={connect2}
+                  alt=""
+                />
+                <img
+                  style={{ borderRadius: "20px" }}
+                  className="w-[200px]"
+                  src={connect3}
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -195,7 +214,12 @@ const Home = () => {
               </Link>
             </div>
             <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
-              <img src={featureImg} className="w-3/4" alt="" />
+              <img
+                style={{ height: "600px" }}
+                src={featureImg}
+                className="w-3/4"
+                alt=""
+              />
               <div className="w-[150px] lg:w-[248px] bg-white absolute bottom-[50px] left-0 md:bottom-[100px] md:left-5 z-20 p-2 pb-3 lg:pt-4 lg:px-4 lg:pb-[26px] rounded-[10px]">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-[6px] lg:gap-3 ">
@@ -226,6 +250,62 @@ const Home = () => {
         </div>
       </section>
       {/* ++++++feature selection end+++++ */}
+      {/* Our great clients */}
+
+      <section>
+        <div className="container">
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className="heading text-center">Our Top Clients</h2>
+            <p className="text__para text-center">
+              World class and expert for every one
+            </p>
+          </div>
+
+          <DoctorList />
+        </div>
+      </section>
+
+      {/* Our great clients */}
+
+      {/* faq section */}
+
+      <section>
+        <div className="container">
+          <div className="flex justify-between gap-[50px lg:gap-0]">
+            <div className="w-1/2 hidden md:block">
+              <img
+                style={{ width: "500px", borderRadius: "12px" }}
+                src={faqImg}
+                alt=""
+              />
+            </div>
+
+            <div className="w-full md:w-1/2">
+              <h2 className="heading"> Most Asked Questions</h2>
+              <FaqList />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* faq section end */}
+
+      {/* testimoial section */}
+
+      <section>
+        <div className="container">
+          <div className="xl:w-[1100px] mx-auto">
+            <h2 className="heading text-center">
+              what Our Clients say about us
+            </h2>
+            <p className="text__para text-center">
+              World class and expert for every one
+            </p>
+            <Testimonial />
+          </div>
+        </div>
+      </section>
+
+      {/* testimoial section end*/}
     </>
   );
 };

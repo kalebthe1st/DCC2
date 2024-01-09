@@ -10,17 +10,18 @@ import BussinessDetails from "../pages/Bussiness/BussinessDetails";
 import { Route, Routes } from "react-router-dom";
 
 const Routers = () => {
-  return <Routes>
+  return (
+    <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
       <Route path="/bussiness" element={<Bussiness />} />
       <Route path="/bussiness:id" element={<BussinessDetails />} />
       <Route path="/news" element={<News />} />
-      <Route path="services" element={<Services />} />
+      <Route path="/services" element={<Services />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
     </Routes>
-  
+  );
 };
 export default Routers;

@@ -1,27 +1,27 @@
 export const faqs = [
   {
-    question: "What is your medical care?",
+    question: "What is B2B?",
     content:
-      "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+      "B2B stands for Business-to-Business. It refers to transactions or interactions that occur between two businesses rather than between a business and an individual consumer.",
   },
   {
-    question: "What happens if I need to go a hospital?",
+    question: "What are the advantages of B2B?",
     content:
-      "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+      "B2B provides businesses with access to a larger market, allows for bulk purchasing and discounts, fosters long-term relationships, and enables specialized products or services tailored to specific business needs.",
   },
   {
-    question: "What happens if I need to go a hospital?",
+    question: "How does B2B differ from B2C?",
     content:
-      "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+      "B2B focuses on selling products or services to other businesses, while B2C (Business-to-Consumer) involves selling directly to individual consumers.",
   },
   {
-    question: "Can I visit your medical office?",
+    question: "What are some common B2B marketing strategies?",
     content:
-      "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+      "B2B marketing strategies include content marketing, email marketing, social media marketing, search engine optimization (SEO), account-based marketing (ABM), and trade shows or conferences.",
   },
   {
-    question: "Does you provide urgent care?",
+    question: "How can B2B businesses generate leads?",
     content:
-      "One Medical was founded on a better model of care one designed around patients needs that provides a higher level of quality and service affordably. We do this through innovative design, excellent customer service, and the efficient use of technology.",
+      "B2B businesses can generate leads through various methods such as content marketing, lead magnets, referrals, networking, cold calling, and targeted advertising.",
   },
 ];
