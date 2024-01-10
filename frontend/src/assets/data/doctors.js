@@ -1,36 +1,36 @@
-import doctorImg01 from "../images/doctor-img01.png";
-import doctorImg02 from "../images/doctor-img02.png";
-import doctorImg03 from "../images/doctor-img03.png";
+import client1 from "../images/client-1.jpg";
+import client2 from "../images/client-2.jpg";
+import client3 from "../images/client-3.jpg";
 
 export const doctors = [
   {
     id: "01",
-    name: "Dr. Alfaz Ahmed",
-    specialty: "Surgeon",
+    name: "Mr. John Doe",
+    specialty: "Mechanic",
     avgRating: 4.8,
     totalRating: 272,
-    photo: doctorImg01,
+    photo: client1,
     totalPatients: 1500,
-    hospital: "Mount Adora Hospital, Sylhet.",
+    location: "Mount Adora location, Sylhet.",
   },
   {
     id: "02",
-    name: "Dr. Saleh Mahmud",
-    specialty: "Neurologist",
+    name: "Mr. John Doe",
+    specialty: "Importer",
     avgRating: 4.8,
     totalRating: 272,
-    photo: doctorImg02,
+    photo: client2,
     totalPatients: 1500,
-    hospital: "Mount Adora Hospital, Sylhet.",
+    location: "Mount Adora location, Sylhet.",
   },
   {
     id: "03",
-    name: "Dr. Farid Uddin",
-    specialty: "Dermatologist",
+    name: "Mr. John Doe",
+    specialty: "Shop Owner",
     avgRating: 4.8,
     totalRating: 272,
-    photo: doctorImg03,
+    photo: client3,
     totalPatients: 1500,
-    hospital: "Mount Adora Hospital, Sylhet.",
+    location: "Mount Adora location, Sylhet.",
   },
 ];
