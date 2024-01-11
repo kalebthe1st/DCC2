@@ -5,5 +5,4 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/DCC2/",
   plugins: [react()],
-  base: '/frontend/'
 });
