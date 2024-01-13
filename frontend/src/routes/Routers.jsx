@@ -4,8 +4,8 @@ import Signup from "../pages/Signup";
 import Services from "../pages/Services";
 import News from "../pages/News";
 import Contact from "../pages/Contact";
-import Bussiness from "../pages/Bussiness/Bussiness";
-import BussinessDetails from "../pages/Bussiness/BussinessDetails";
+import Businesses from "../pages/Businesses/Businesses";
+import BusinessesDetails from "../pages/Businesses/BusinessesDetails";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -14,8 +14,8 @@ const Routers = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/bussiness" element={<Bussiness />} />
-      <Route path="/bussiness:id" element={<BussinessDetails />} />
+      <Route path="/businesses" element={<Businesses />} />
+      <Route path="/businesses:id" element={<BusinessesDetails />} />
       <Route path="/news" element={<News />} />
       <Route path="/services" element={<Services />} />
       <Route path="/contact" element={<Contact />} />
