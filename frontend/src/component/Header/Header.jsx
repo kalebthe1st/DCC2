@@ -10,8 +10,8 @@ const navLinks = [
     display: "Home",
   },
   {
-    path: "/bussiness",
-    display: "Find Bussiness",
+    path: "/businesses",
+    display: "Find a Business",
   },
   {
     path: "/services",
@@ -45,7 +45,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleStickyHeader);
   });
 
-  const toggleMenu = ()=> menuRef.current.classList.toggle('show__menu');
+  const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
 
   return (
     <header className="header flex items-center" ref={headerRef}>
@@ -83,12 +83,7 @@ const Header = () => {
             <div className="hidden">
               <Link to="/">
                 <figure className="w-[35px] h-[45px] rounded-full cursor-pointer">
-                  <img
-                    src={userImg}
-                    className="w-full rounded-full"
-                    alt=""
-                    srcset=""
-                  />
+                  <img src={userImg} className="w-full rounded-full" alt="" />
                 </figure>
               </Link>
             </div>
