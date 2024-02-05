@@ -4,12 +4,13 @@ import avatar from "../assets/images/doctor-img01.png";
 import { Link, useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../utils/uploadCloudinary";
 import { BASE_URL } from "../config";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
+import { HashLoader } from "react-spinners/HashLoader";
 
 const Signup = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewURL, setPreviewURL] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -20,7 +21,7 @@ const Signup = () => {
     photo: "",
   });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handeleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,9 +32,9 @@ const Signup = () => {
     const data = await uploadImageToCloudinary(file);
     // later we will upload img using cloudinary
 
-    setPreviewURL(data.url)
-    setSelectedFile(data.url)
-    setFormData({ ... formData, photo:data.url } )
+    setPreviewURL(data.url);
+    setSelectedFile(data.url);
+    setFormData({ ...formData, photo: data.url });
   };
 
   const submitHandler = async (e) => {
@@ -41,24 +42,23 @@ const Signup = () => {
     setLoading(true);
     try {
       const res = await fetch(`${BASE_URL}/auth/register`, {
-        method:'post',
-        headers:{
-          'Content-Type':'application/json'
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
-
-      })
-      const {message} = await res.json()
-      if(!res.ok){
-        throw new Error(message)
+        body: JSON.stringify(formData),
+      });
+      const { message } = await res.json();
+      if (!res.ok) {
+        throw new Error(message);
       }
 
-      setLoading(false)
-      toast.success(message)
-      navigate('/login')
+      setLoading(false);
+      toast.success(message);
+      navigate("/login");
     } catch (err) {
-      toast.error(err.message)
-      setLoading(false)
+      toast.error(err.message);
+      setLoading(false);
     }
   };
   return (
@@ -150,12 +150,15 @@ const Signup = () => {
               </div>
 
               <div className="mb-5 flex items-center gap-3">
-                <figure
-                  className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor
-                flex items-center justfy-center"
-                >
-                  <img src={avatar} alt="" className="w-full rounded-full" />
-                </figure>
+                {selectedFile && (
+                  <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
+                    <img
+                      src={previewURL}
+                      alt=""
+                      className="w-full rounded-full"
+                    />
+                  </figure>
+                )}
 
                 <div className="relative w-[130px] h-[50px]">
                   <input
@@ -168,7 +171,7 @@ const Signup = () => {
                   <label
                     htmlFor="customFile"
                     className="absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] 
-                  text-[15px] leading-6 overflow-hidden bg-[#006ff46] text-headingColor font-semibold rounded-lg truncate cursor-pointer"
+                  text-[15px] leading-6 overflow-hidden bg-[#0066ff46] text-headingColor font-semibold rounded-lg truncate cursor-pointer"
                   >
                     upload photo
                   </label>
@@ -176,8 +179,16 @@ const Signup = () => {
               </div>
 
               <div className="mt-7">
-                <button className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3">
-                  Login
+                <button
+                  disabled={loading && true}
+                  type="submit"
+                  className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3"
+                >
+                  {loading ? (
+                    <HashLoader size={35} color="#ffffff" />
+                  ) : (
+                    "Sign Up"
+                  )}
                 </button>
               </div>
 
