@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import signupImg from "../assets/images/signup.gif";
 import avatar from "../assets/images/doctor-img01.png";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ const Signup = () => {
     password: "",
     role: "patient",
     gender: "",
-    photo: "",
+    photo: selectedFile,
   });
 
   const handeleInputChange = (e) => {
@@ -98,7 +98,6 @@ const Signup = () => {
                     className="text-textColor font-semibold text-[15px] leading-7 px-4 
                   py-3 focus:outline-none"
                   >
-                    <option value="">select</option>
                     <option value="client">Client</option>
                     <option value="business">Business</option>
                   </select>
@@ -106,13 +105,13 @@ const Signup = () => {
                 <label className="text-headingColor font-bold text-[16px] leading-7">
                   Gender:
                   <select
-                    name="role"
+                    name="gender"
                     value={formData.gender}
                     onChange={handeleInputChange}
                     className="text-textColor font-semibold text-[15px] leading-7 px-4 
                   py-3 focus:outline-none"
                   >
-                    <option value="">select</option>
+                    <option value="">Select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </select>
@@ -122,7 +121,7 @@ const Signup = () => {
               <div className="mb-5 flex items-center gap-3">
                 <figure
                   className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor
-                flex items-center justfy-center"
+                flex items-center justify-center"
                 >
                   <img src={avatar} alt="" className="w-full rounded-full" />
                 </figure>
@@ -133,12 +132,13 @@ const Signup = () => {
                     name="photo"
                     onChange={handleFileInputChange}
                     id="customFile"
+                    accept=".jpg, .png"
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
                   />
                   <label
                     htmlFor="customFile"
                     className="absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] 
-                  text-[15px] leading-6 overflow-hidden bg-[#006ff46] text-headingColor font-semibold rounded-lg truncate cursor-pointer"
+                  text-[15px] leading-6 overflow-hidden bg-[#0066ff46] text-headingColor font-semibold rounded-lg truncate cursor-pointer"
                   >
                     upload photo
                   </label>
@@ -146,14 +146,21 @@ const Signup = () => {
               </div>
 
               <div className="mt-7">
-                <button className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3">
-                  Login
+                <button
+                  type="submit"
+                  className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3"
+                >
+                  Signup
                 </button>
               </div>
 
               <p className="mt-5 text-textColor text-center">
                 Already have an account?{" "}
-                <Link to="/login" className="text-primaryColor font-medium">
+                <Link
+                  to="/login"
+                  className="text-primaryColor font-medium"
+                  onClick={() => scroll(0, 0)}
+                >
                   Login
                 </Link>
               </p>
