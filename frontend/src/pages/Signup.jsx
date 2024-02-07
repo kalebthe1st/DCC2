@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import signupImg from "../assets/images/signup.gif";
 import avatar from "../assets/images/doctor-img01.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ const Signup = () => {
     password: "",
     role: "patient",
     gender: "",
-    photo: "",
+    photo: selectedFile,
   });
 
   const navigate = useNavigate();
@@ -41,10 +41,10 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch(`${BASE_URL}/auth/register`, {
+      const res = await fetch(`http://localhost:5173/api/v1/auth/register`, {
         method: "post",
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
@@ -108,7 +108,7 @@ const Signup = () => {
               <div className="mb-5">
                 <input
                   className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor
-              text-[16px] leading-7 text-headingColor placeholder:text-textColor  cursor-pointer"
+              text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer"
                   type="password"
                   placeholder="Enter Password"
                   name="password"
@@ -136,7 +136,7 @@ const Signup = () => {
                 <label className="text-headingColor font-bold text-[16px] leading-7">
                   Gender:
                   <select
-                    name="role"
+                    name="gender"
                     value={formData.gender}
                     onChange={handeleInputChange}
                     className="text-textColor font-semibold text-[15px] leading-7 px-4 
@@ -167,6 +167,7 @@ const Signup = () => {
                     onChange={handleFileInputChange}
                     id="customFile"
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
+                    accept=".png, .jpg"
                   />
                   <label
                     htmlFor="customFile"
@@ -183,6 +184,9 @@ const Signup = () => {
                   disabled={loading && true}
                   type="submit"
                   className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3"
+                  onClick={(err) => {
+                    console.log(err);
+                  }}
                 >
                   {loading ? (
                     <HashLoader size={35} color="#ffffff" />
