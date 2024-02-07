@@ -128,7 +128,6 @@ const Signup = () => {
                     className="text-textColor font-semibold text-[15px] leading-7 px-4 
                   py-3 focus:outline-none"
                   >
-                    <option value="">select</option>
                     <option value="client">Client</option>
                     <option value="business">Business</option>
                   </select>
@@ -142,7 +141,7 @@ const Signup = () => {
                     className="text-textColor font-semibold text-[15px] leading-7 px-4 
                   py-3 focus:outline-none"
                   >
-                    <option value="">select</option>
+                    <option value="">Select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </select>
@@ -150,15 +149,7 @@ const Signup = () => {
               </div>
 
               <div className="mb-5 flex items-center gap-3">
-                {selectedFile && (
-                  <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
-                    <img
-                      src={previewURL}
-                      alt=""
-                      className="w-full rounded-full"
-                    />
-                  </figure>
-                )}
+
 
                 <div className="relative w-[130px] h-[50px]">
                   <input
@@ -166,6 +157,7 @@ const Signup = () => {
                     name="photo"
                     onChange={handleFileInputChange}
                     id="customFile"
+                    accept=".jpg, .png"
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
                     accept=".png, .jpg"
                   />
@@ -181,24 +173,16 @@ const Signup = () => {
 
               <div className="mt-7">
                 <button
-                  disabled={loading && true}
-                  type="submit"
-                  className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3"
-                  onClick={(err) => {
-                    console.log(err);
-                  }}
-                >
-                  {loading ? (
-                    <HashLoader size={35} color="#ffffff" />
-                  ) : (
-                    "Sign Up"
-                  )}
                 </button>
               </div>
 
               <p className="mt-5 text-textColor text-center">
                 Already have an account?{" "}
-                <Link to="/login" className="text-primaryColor font-medium">
+                <Link
+                  to="/login"
+                  className="text-primaryColor font-medium"
+                  onClick={() => scroll(0, 0)}
+                >
                   Login
                 </Link>
               </p>
