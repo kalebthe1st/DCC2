@@ -41,7 +41,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5173/api/v1/auth/register`, {
+      const res = await fetch(`http://localhost:5000/api/v1/auth/register`, {
         method: "post",
         headers: {
           'Content-Type': 'application/json',
@@ -159,7 +159,7 @@ const Signup = () => {
                     id="customFile"
                     accept=".jpg, .png"
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
-                    accept=".png, .jpg"
+                    
                   />
                   <label
                     htmlFor="customFile"
@@ -172,8 +172,21 @@ const Signup = () => {
               </div>
 
               <div className="mt-7">
-                <button
-                </button>
+                
+                {/* <button
+                  disabled={loading && true}
+                  type="submit"
+                  className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3"
+                 
+                >
+                  {loading ? (
+                    <HashLoader size={35} color="#ffffff" />
+                  ) : (
+                    "Sign Up"
+                  )}
+                </button> */}
+                <button>Sign up</button>
+                
               </div>
 
               <p className="mt-5 text-textColor text-center">
