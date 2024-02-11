@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../utils/uploadCloudinary";
 import { BASE_URL } from "../config";
 import { toast } from "react-toastify";
-import { HashLoader } from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/HashLoader";
 
 const Signup = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -40,11 +40,12 @@ const Signup = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     try {
       const res = await fetch(`http://localhost:5000/api/v1/auth/register`, {
         method: "post",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -149,8 +150,15 @@ const Signup = () => {
               </div>
 
               <div className="mb-5 flex items-center gap-3">
-
-
+              {selectedFile && (
+                  <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
+                    <img
+                      src={previewURL}
+                      alt=""
+                      className="w-full rounded-full"
+                    />
+                  </figure>
+                )}
                 <div className="relative w-[130px] h-[50px]">
                   <input
                     type="file"
@@ -159,7 +167,6 @@ const Signup = () => {
                     id="customFile"
                     accept=".jpg, .png"
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
-                    
                   />
                   <label
                     htmlFor="customFile"
@@ -172,21 +179,13 @@ const Signup = () => {
               </div>
 
               <div className="mt-7">
-                
-                {/* <button
+                <button
                   disabled={loading && true}
                   type="submit"
                   className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3"
-                 
                 >
-                  {loading ? (
-                    <HashLoader size={35} color="#ffffff" />
-                  ) : (
-                    "Sign Up"
-                  )}
-                </button> */}
-                <button>Sign up</button>
-                
+                  { loading ? <HashLoader size={35} color="#ffffff"/> : "Sign Up"}
+                </button>
               </div>
 
               <p className="mt-5 text-textColor text-center">
