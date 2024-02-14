@@ -1,6 +1,5 @@
 import { useState } from "react";
 import signupImg from "../assets/images/signup.gif";
-import avatar from "../assets/images/doctor-img01.png";
 import { Link, useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../utils/uploadCloudinary";
 import { BASE_URL } from "../config";
@@ -150,7 +149,7 @@ const Signup = () => {
               </div>
 
               <div className="mb-5 flex items-center gap-3">
-              {selectedFile && (
+                {selectedFile && (
                   <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
                     <img
                       src={previewURL}
@@ -184,7 +183,11 @@ const Signup = () => {
                   type="submit"
                   className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3"
                 >
-                  { loading ? <HashLoader size={35} color="#ffffff"/> : "Sign Up"}
+                  {loading ? (
+                    <HashLoader size={35} color="#ffffff" />
+                  ) : (
+                    "Sign Up"
+                  )}
                 </button>
               </div>
 

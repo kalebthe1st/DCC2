@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../config";
 import { authContext } from "../context/AuthContext";
-// import { }
-authContext;
+import HashLoader from "react-spinners/HashLoader";
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -87,8 +87,8 @@ const Login = () => {
           </div>
 
           <div className="mt-7">
-            <button className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg  py-3">
-              Login
+            <button className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg py-3">
+              { loading ? <HashLoader size={25} color="#fff" /> : 'Login'}
             </button>
           </div>
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useContext } from "react";
 import logo from "../../assets/images/logo.png";
-import userImg from "../../assets/images/avatar-icon.png";
+
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
@@ -84,11 +84,20 @@ const Header = () => {
           <div className="flex items-center gap-4">
             {token && user ? (
               <div>
-                <Link to={`${role==='doctor' ? 'doctors/profile/me' : 'users/profile/me'}`}>
+                <Link
+                  to={`${
+                    role === "doctor"
+                      ? "/doctors/profile/me"
+                      : "/users/profile/me"
+                  }`}
+                >
                   <figure className="w-[35px] h-[45px] rounded-full cursor-pointer">
-                    <img src={user?.photo} className="w-full rounded-full" alt="" />
+                    <img
+                      src={user?.photo}
+                      className="w-full rounded-full"
+                      alt=""
+                    />
                   </figure>
-                  <h2>{user?.name}</h2>
                 </Link>
               </div>
             ) : (
