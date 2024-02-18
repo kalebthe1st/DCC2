@@ -23,7 +23,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${BASE_URL}api/v1/auth/login`, {
+      const res = await fetch(`${BASE_URL}/auth/login`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +34,8 @@ const Login = () => {
       if (!res.ok) {
         throw new Error(result.message);
       }
-
+  // localStorage.setItem("token",result.token)
+  console.log(result)
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: {
